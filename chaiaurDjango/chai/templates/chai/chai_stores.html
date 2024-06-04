@@ -1,0 +1,33 @@
+{% load static tailwind_tags %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% tailwind_css %}
+</head>
+
+<body class="bg-blue-500">
+    
+    <h1> Forms</h1>
+    <form method="POST">
+        {% csrf_token %} 
+        {{form}}
+        <button type="submit"> search store</button>
+    </form>
+    <h2>sdhj</h2>
+    {% if stores %}
+    <h2> stores available</h2>
+    <ul>
+        {% for store in stores %}
+        <li> {{store.name}} - {{store.location}}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    
+    
+</body>
+
+</html>

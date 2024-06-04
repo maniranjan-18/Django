@@ -1,0 +1,28 @@
+{% load static tailwind_tags %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All chai</title>
+    {% tailwind_css %}
+</head>
+<body class="bg-blue-800 ">
+    <h1 class="bg-orange-500 text-3xl"> Complete Django Developer</h1>
+    {% for chai in chais %}
+    <div class="grid grid-cols-3 gap-4 m-4 bg-blue-400 p-15 justify-center">
+        <img src="{{chai.image.url}}" alt="">
+        <h3> {{chai.name}}</h3>
+        test
+        <a href="{% url 'chai_detail' chai.id %}">
+            <button
+            type="button"
+            class="inline-flex items-center justify-center bg-orange-500 hover:bg-orange-800 px-4 py-2 border border-transparent rounded-md">
+                {{chai.type}} - {{chai.id}}
+            </button>
+        </a>
+    </div>
+    {% endfor %}
+</body>
+</html>
